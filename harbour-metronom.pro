@@ -15,8 +15,8 @@ CONFIG += sailfishapp
 DEPLOYMENT_PATH = /usr/share/$${TARGET}
 
 SOURCES += src/harbour-metronom.cpp \
-    audioplayer.cpp \
-    timedisplay.cpp
+    src/audioplayer.cpp \
+    src/timedisplay.cpp
 
 data.files = data
 data.path = $${DEPLOYMENT_PATH}
@@ -35,5 +35,5 @@ OTHER_FILES += qml/harbour-metronom.qml \
 INSTALLS += data
 
 HEADERS += \
-    audioplayer.h \
-    timedisplay.h
+    src/audioplayer.h \
+    src/timedisplay.h
