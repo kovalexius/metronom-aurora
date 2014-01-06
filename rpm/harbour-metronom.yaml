@@ -16,6 +16,8 @@ PkgConfigBR:
 - Qt5Qml
 - Qt5Core
 - sailfishapp >= 0.0.10
+- libresourceqt5
+- libpulse-simple
 Requires:
 - sailfishsilica-qt5 >= 0.10.9
 Files:

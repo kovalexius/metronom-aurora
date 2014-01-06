@@ -22,6 +22,11 @@ data.files = data
 data.path = $${DEPLOYMENT_PATH}
 
 # LIBS += -laudioresource-qt
+INCLUDEPATH += /usr/include/resource/qt5
+
+PKGCONFIG += libresourceqt5 libpulse-simple
+
+# LIBS += -lresource -lpulse -lpulse-simple
 
 OTHER_FILES += qml/harbour-metronom.qml \
     qml/cover/CoverPage.qml \
@@ -38,4 +43,5 @@ INSTALLS += data
 
 HEADERS += \
     src/audioplayer.h \
-    src/timedisplay.h
+    src/timedisplay.h \
+    src/PulseSimple.h

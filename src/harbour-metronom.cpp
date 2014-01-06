@@ -34,6 +34,7 @@
 
 #include <QGuiApplication>
 #include <QQuickView>
+#include <QQuickItem>
 
 #include <sailfishapp.h>
 

@@ -3,12 +3,26 @@
 
 #include <QObject>
 
+#define USE_RESOURCE 1
 #define USE_AUDIORESOURCE 0
+#define USE_QSOUNDEFFECT 0
+#define USE_PULSEAUDIO 1
+
+#if USE_RESOURCE
+#include <policy/resource-set.h>
+#endif
 
 #if USE_AUDIORESOURCE
+#include <audioresource.h>
+#endif
+
+#if USE_QSOUNDEFFECT
 #include <QtMultimedia>
 #include <QSoundEffect>
-#include <audioresource.h>
+#endif
+
+#if USE_PULSEAUDIO
+#include "PulseSimple.h"
 #endif
 
 class AudioPlayer : public QObject
@@ -23,9 +37,23 @@ signals:
 public slots:
     void playClick(int bar, int measure, int soundId);
 
+#if USE_RESOURCE
+private slots:
+    void resourceAcquiredHandler(const QList<ResourcePolicy::ResourceType>&);
+    void resourceLostHandler();
+
 private:
-#if USE_AUDIORESOURCE
+    ResourcePolicy::ResourceSet *m_resourceSet;
+    ResourcePolicy::AudioResource *m_audioResource;
+#endif
+
+private:
+#if USE_QSOUNDEFFECT
     QSoundEffect sounds[4];
+#endif
+#if USE_PULSEAUDIO
+    WavFile wavs[4];
+    PulseSimple pulse;
 #endif
 };
 
