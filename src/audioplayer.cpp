@@ -56,8 +56,8 @@ AudioPlayer::AudioPlayer(QObject *parent) :
 
 #if USE_RESOURCE
     // Resource management stuff
-    m_resourceSet = new ResourcePolicy::ResourceSet(QLatin1String("player"), 0, false, true);
-    m_audioResource = new ResourcePolicy::AudioResource(QLatin1String("player"));
+    m_resourceSet = new ResourcePolicy::ResourceSet(QLatin1String("Metronom"), 0, false, true);
+    m_audioResource = new ResourcePolicy::AudioResource(QLatin1String("Metronom"));
     m_audioResource->setProcessID(QCoreApplication::applicationPid());
     m_audioResource->setStreamTag(QLatin1String("media.name"), QLatin1String("*"));
     m_audioResource->setOptional(false);
