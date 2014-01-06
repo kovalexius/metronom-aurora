@@ -21,6 +21,8 @@ SOURCES += src/harbour-metronom.cpp \
 data.files = data
 data.path = $${DEPLOYMENT_PATH}
 
+# LIBS += -laudioresource-qt
+
 OTHER_FILES += qml/harbour-metronom.qml \
     qml/cover/CoverPage.qml \
     rpm/harbour-metronom.spec \
