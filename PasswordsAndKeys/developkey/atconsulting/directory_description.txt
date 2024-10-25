@@ -1,0 +1,7 @@
+atconsulting_2022-05-05_csr.pem - это файл запроса, полученный из файла приватного ключа.
+atconsulting_2022-05-05_key.pem - это файл приватного ключа. У него есть свой пин-код.
+atconsulting_2022-05-05_key_password.txt - тут написан пин-код для файла приватного ключа.
+atconsulting_2022-05-06_packages_cert-developer-regular.pem - файл сертификата к приватному ключу, имеющий профиль "developer regular"
+atconsulting_2022-08-08_packages-cert-auth.pem - файл сертификата к приватному ключу, имеющий профиль "auth"
+csr.conf - файл конфига для генерации файла запроса (см. https://community.omprussia.ru/documentation/software_development/guides/package_signing.html для более подробной технической информации о том как это сделать)
+Скрин письма.pdf - скрин письма от ОМП сотруднику АТК, в котором пришел сертификат типа "developer regular"

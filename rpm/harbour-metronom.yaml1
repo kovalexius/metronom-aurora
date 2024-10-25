@@ -29,4 +29,7 @@ Files:
 - /usr/bin
 - /usr/share/harbour-metronom
 - /usr/share/applications
-- /usr/share/icons/hicolor/86x86/apps
+- /usr/share/icons/86x86/ru.krig.harbour-metronom.png
+- /usr/share/icons/108x108/ru.krig.harbour-metronom.png
+- /usr/share/icons/128x128/ru.krig.harbour-metronom.png
+- /usr/share/icons/172x172/ru.krig.harbour-metronom.png

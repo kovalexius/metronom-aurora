@@ -6,11 +6,12 @@
 #         - desktop icon filename must be changed
 #         - desktop filename must be changed
 #         - icon definition filename in desktop file must be changed
-TARGET = harbour-metronom
+TARGET = ru.krig.harbour-metronom
 
 QT += multimedia
 
-CONFIG += sailfishapp
+CONFIG += sailfishapp \
+        auroraapp
 
 DEPLOYMENT_PATH = /usr/share/$${TARGET}
 
@@ -32,7 +33,7 @@ PKGCONFIG += libresourceqt5
 OTHER_FILES += qml/harbour-metronom.qml \
     qml/cover/CoverPage.qml \
     rpm/harbour-metronom.spec \
-    harbour-metronom.desktop \
+    ru.krig.harbour-metronom.desktop \
     qml/pages/Settings.qml \
     qml/pages/Metronome.qml \
     data/fine2.wav \
@@ -47,3 +48,5 @@ HEADERS += \
     src/timedisplay.h \
     src/PulseSimple.h \
     src/WavFile.h
+
+AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
