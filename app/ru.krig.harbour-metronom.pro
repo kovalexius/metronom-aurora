@@ -15,8 +15,6 @@ CONFIG += sailfishapp \
         auroraapp \
         pulse \
 
-#DEPLOYMENT_PATH = /usr/share/$${TARGET}
-
 SOURCES += src/harbour-metronom.cpp \
     src/audioplayer.cpp \
     src/timedisplay.cpp
@@ -24,24 +22,20 @@ SOURCES += src/harbour-metronom.cpp \
 data.files = data
 data.path = $${DEPLOYMENT_PATH}
 
-# LIBS += -laudioresource-qt
 INCLUDEPATH += /usr/include/resource/qt5
 
 PKGCONFIG += sailfishapp \
     libresourceqt5 \
 
-# LIBS += -lresource -lpulse -lpulse-simple
-
 OTHER_FILES += qml/harbour-metronom.qml \
     qml/cover/CoverPage.qml \
-    rpm/harbour-metronom.spec \
     ru.krig.harbour-metronom.desktop \
     qml/pages/Settings.qml \
     qml/pages/Metronome.qml \
     data/fine2.wav \
     data/fine1.wav \
     data/high.wav \
-    data/low.wav
+    data/low.wav \
 
 INSTALLS += data
 

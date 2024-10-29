@@ -13,6 +13,8 @@ BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10
 BuildRequires:  pkgconfig(libresourceqt5)
 BuildRequires:  desktop-file-utils
+BuildRequires:  pulseaudio-devel
+BuildRequires:  pulseaudio
 
 %description
 Metronome for AuroraOS
@@ -20,29 +22,16 @@ Metronome for AuroraOS
 %prep
 %setup -q -n %{name}-%{version}
 
-
 %build
 %qmake5
 %make_build
 
-# // %qtc_qmake5
-# // %qtc_make %{?_smp_mflags}
-
 %install
-# install -D -m 0644  ../app/%{name}.desktop             %{buildroot}%{_datadir}/applications/%{name}.desktop
-# install -D -m 0644  ../app/icons/86x86/%{name}.png     %{buildroot}%{_datadir}/icons/hicolor/86x86/apps/%{name}.png
-# install -D -m 0644  ../app/icons/108x108/%{name}.png   %{buildroot}%{_datadir}/icons/hicolor/108x108/apps/%{name}.png
-# install -D -m 0644  ../app/icons/128x128/%{name}.png   %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/%{name}.png
-# install -D -m 0644  ../app/icons/172x172/%{name}.png   %{buildroot}%{_datadir}/icons/hicolor/172x172/apps/%{name}.png
-# install -D -m 0644  ./data/fine1.wav       %{buildroot}%{_datadir}/data/fine1.wav
-# install -D -m 0644  ./data/fine2.wav       %{buildroot}%{_datadir}/data/fine2.wav
-# install -D -m 0644  ./data/high.wav        %{buildroot}%{_datadir}/data/high.wav
-# install -D -m 0644  ./data/low.wav         %{buildroot}%{_datadir}/data/low.wav
+install -D -m 0644 %{_sourcedir}/../app/data/fine1.wav  %{buildroot}%{_datadir}/%{name}/data/fine1.wav
+install -D -m 0644 %{_sourcedir}/../app/data/fine2.wav  %{buildroot}%{_datadir}/%{name}/data/fine2.wav
+install -D -m 0644 %{_sourcedir}/../app/data/high.wav   %{buildroot}%{_datadir}/%{name}/data/high.wav
+install -D -m 0644 %{_sourcedir}/../app/data/low.wav    %{buildroot}%{_datadir}/%{name}/data/low.wav
 %make_install
-
-#  desktop-file-install --delete-original       \
-#    --dir %{buildroot}%{_datadir}/applications             \
-#     %{buildroot}%{_datadir}/applications/*.desktop
 
 %files
 %defattr(-,root,root,-)
@@ -51,5 +40,7 @@ Metronome for AuroraOS
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
-
-# //////%{_datadir}/data/*
+%{_datadir}/%{name}/data/fine1.wav
+%{_datadir}/%{name}/data/fine2.wav
+%{_datadir}/%{name}/data/high.wav
+%{_datadir}/%{name}/data/low.wav

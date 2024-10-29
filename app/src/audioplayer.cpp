@@ -100,9 +100,11 @@ void AudioPlayer::resourceLostHandler() {
 }
 #endif
 
-void AudioPlayer::playClick(int bar, int measure, int soundId) {
+void AudioPlayer::playClick(int bar, int measure, int soundId)
+{
     qDebug() << "playClick " << bar << measure << soundId;
-    if (allow_sound) {
+    if (allow_sound)
+    {
         int n = (bar == 1) ? 0 : 1;
         if (measure == 7 && bar == 5)
             n = 0;
@@ -110,7 +112,10 @@ void AudioPlayer::playClick(int bar, int measure, int soundId) {
 
 #if USE_QSOUNDEFFECT
         if (sounds[playidx].status() == QSoundEffect::Ready)
+        {
+            qDebug() << "playing " << playidx;
             sounds[playidx].play();
+        }
 #endif
 #if USE_PULSEAUDIO
         pulse.play(&wavs[playidx]);
