@@ -3,6 +3,7 @@
 #include <QDebug>
 
 #include <sailfishapp.h>
+#include <chrono>
 
 #if USE_RESOURCE
 #include <QtCore/QCoreApplication>
@@ -90,11 +91,14 @@ AudioPlayer::~AudioPlayer() {
 }
 
 #if USE_RESOURCE
-void AudioPlayer::resourceAcquiredHandler(const QList<ResourcePolicy::ResourceType>&) {
+void AudioPlayer::resourceAcquiredHandler(const QList<ResourcePolicy::ResourceType>&)
+{
     allow_sound = true;
     qDebug() << "Resource acquired";
 }
-void AudioPlayer::resourceLostHandler() {
+
+void AudioPlayer::resourceLostHandler()
+{
     allow_sound = false;
     qDebug() << "Resource lost";
 }
@@ -102,7 +106,13 @@ void AudioPlayer::resourceLostHandler() {
 
 void AudioPlayer::playClick(int bar, int measure, int soundId)
 {
-    qDebug() << "playClick " << bar << measure << soundId;
+    static std::chrono::time_point<std::chrono::system_clock> point;
+    auto now = std::chrono::system_clock::now();
+    auto period = std::chrono::duration_cast<std::chrono::milliseconds>(now - point);
+    point = now;
+    qDebug() << "playClick " << bar << measure  << soundId
+               << " period(ms): " << period.count()
+                ;
     if (allow_sound)
     {
         int n = (bar == 1) ? 0 : 1;

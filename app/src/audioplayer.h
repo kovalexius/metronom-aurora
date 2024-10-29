@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#define USE_RESOURCE 1
+#define USE_RESOURCE 0
 #define USE_AUDIORESOURCE 0
 #define USE_QSOUNDEFFECT 1
 #define USE_PULSEAUDIO 0
